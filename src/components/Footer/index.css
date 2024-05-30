@@ -1,0 +1,21 @@
+.footer-main-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #131313;
+  color: #ffffff;
+  font-family: roboto;
+  text-align: center;
+  height: 158px;
+}
+
+.footer-icon-list {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  justify-content: space-between;
+  min-width: 120px;
+}

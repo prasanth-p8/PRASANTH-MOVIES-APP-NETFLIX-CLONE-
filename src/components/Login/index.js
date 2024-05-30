@@ -20,13 +20,14 @@ const Login = props => {
   }
 
   const onSubmitSuccess = jwtToken => {
-    Cookies.set('jwt_token', jwtToken, {expires: 30})
     const {history} = props
+    Cookies.set('jwt_token', jwtToken, {expires: 30})
+    localStorage.setItem('username', username)
+    localStorage.setItem('password', password)
     history.replace('./')
   }
 
   const onSubmitFailure = message => {
-    console.log(message)
     setErrorMsg(message)
     setShowErrorMsg(true)
   }
@@ -92,7 +93,9 @@ const Login = props => {
             />
           </div>
           {showErrorMsg && <p className="error-message">{errorMsg}</p>}
-          <button type="submit">Sign in</button>
+          <button className="login-button" type="submit">
+            Login
+          </button>
         </form>
       </div>
     </section>

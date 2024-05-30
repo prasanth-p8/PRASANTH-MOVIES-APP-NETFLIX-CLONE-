@@ -1,3 +1,5 @@
-const Home = () => <div>Home</div>
+import Footer from '../Footer'
+
+const Home = () => <Footer />
 
 export default Home

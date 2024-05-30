@@ -11,14 +11,14 @@ import './App.css'
 
 const App = () => (
   <Switch>
-    <Route path="/login" component={Login} />
-    <ProtectedRoute path="/" component={Home} />
-    <ProtectedRoute path="/popular" component={Popular} />
-    <ProtectedRoute path="/account" component={Account} />
-    <ProtectedRoute path="/movies/:id" component={MovieItemDetails} />
-    <ProtectedRoute path="/search" component={Search} />
-    <Route path="not-found" component={NotFound} />
-    <Redirect to="not-found" />
+    <Route exact path="/login" component={Login} />
+    <ProtectedRoute exact path="/" component={Home} />
+    <ProtectedRoute exact path="/popular" component={Popular} />
+    <ProtectedRoute exact path="/account" component={Account} />
+    <ProtectedRoute exact path="/movies/:id" component={MovieItemDetails} />
+    <ProtectedRoute exact path="/search" component={Search} />
+    <Route path="/not-found" component={NotFound} />
+    <Redirect to="/not-found" />
   </Switch>
 )
 
