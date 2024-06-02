@@ -2,9 +2,9 @@ import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
 import './index.css'
 
 const Footer = () => (
-  <section className="footer-main-container">
+  <footer className="footer-container">
     <div>
-      <ul className="footer-icon-list">
+      <ul className="footer-icon-list-mobile">
         <li>
           <FaGoogle />
         </li>
@@ -18,9 +18,23 @@ const Footer = () => (
           <FaYoutube />
         </li>
       </ul>
-      <p>Contact Us</p>
+      <ul className="footer-icon-list-desktop">
+        <li>
+          <FaGoogle size={18} />
+        </li>
+        <li>
+          <FaTwitter size={18} />
+        </li>
+        <li>
+          <FaInstagram size={18} />
+        </li>
+        <li>
+          <FaYoutube size={18} />
+        </li>
+      </ul>
+      <p className="footer-contact-us">Contact Us</p>
     </div>
-  </section>
+  </footer>
 )
 
 export default Footer

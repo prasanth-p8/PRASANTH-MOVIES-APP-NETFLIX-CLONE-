@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import Cookies from 'js-cookie'
-import Header from '../Header'
-import Footer from '../Footer'
+import ReactStickSlider from '../ReactStickSlider'
+import './index.css'
 
 const apiConstants = {
   initial: 'INITIAL',
@@ -10,7 +10,7 @@ const apiConstants = {
   failure: 'FAILURE',
 }
 
-const Popular = () => {
+const TrendingNow = () => {
   const [apiStatus, setApiStatus] = useState({
     status: apiConstants.initial,
     data: null,
@@ -41,11 +41,11 @@ const Popular = () => {
     })
   }
 
-  const getPopular = async () => {
+  const getTrendingNow = async () => {
     setApiStatus({status: apiConstants.inProgress, data: null, error: null})
     const jwtToken = Cookies.get('jwt_token')
 
-    const url = 'https://apis.ccbp.in/movies-app/popular-movies'
+    const url = 'https://apis.ccbp.in/movies-app/trending-movies'
 
     const options = {
       method: 'GET',
@@ -64,7 +64,7 @@ const Popular = () => {
   }
 
   useEffect(() => {
-    getPopular()
+    getTrendingNow()
   }, [])
 
   const renderLoadingView = () => <div>Loading</div>
@@ -73,17 +73,12 @@ const Popular = () => {
     const {data} = apiStatus
 
     return (
-      <ul className="popular-main-container">
-        {data.map(eachData => {
-          const {id, posterPath, title} = eachData
-
-          return (
-            <li key={id}>
-              <img src={posterPath} alt={title} />
-            </li>
-          )
-        })}
-      </ul>
+      <div className="trending-main-container">
+        <h1 className="trending-now-heading">Trending Now</h1>
+        <div className="slick-container">
+          <ReactStickSlider stickData={data} />
+        </div>
+      </div>
     )
   }
 
@@ -93,7 +88,7 @@ const Popular = () => {
     return <div>{error}</div>
   }
 
-  const renderPopular = () => {
+  const renderTrendingNow = () => {
     const {status} = apiStatus
 
     switch (status) {
@@ -107,15 +102,8 @@ const Popular = () => {
         return null
     }
   }
-  return (
-    <>
-      <Header />
 
-      <div>{renderPopular()}</div>
-
-      <Footer />
-    </>
-  )
+  return renderTrendingNow()
 }
 
-export default Popular
+export default TrendingNow

@@ -1,0 +1,130 @@
+.account-main-container {
+  padding: 40px;
+  margin-top: 40px;
+  font-family: 'roboto';
+}
+
+@media (min-width: 401px) {
+  .account-main-container {
+    margin-top: -30px;
+    padding: 120px;
+  }
+}
+
+.account-heading {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28.13px;
+  text-align: left;
+}
+
+@media (min-width: 401px) {
+  .account-heading {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 46.91px;
+    text-align: left;
+  }
+}
+
+.account-main-1 {
+  display: flex;
+  justify-content: space-between;
+  max-width: 270px;
+}
+
+.account-main-2 {
+  display: flex;
+  justify-content: space-between;
+  max-width: 250px;
+}
+
+@media (min-width: 401px) {
+  .account-main-1 {
+    max-width: 400px;
+  }
+  .account-main-2 {
+    max-width: 385px;
+  }
+}
+
+.plan-name {
+  border: #1e293b 1px solid;
+  border-radius: 2px;
+  padding: 2px 4px 2px 4px;
+  width: 64px;
+  height: 22px;
+  margin-left: 5px;
+}
+
+.account-main-heading {
+  color: #94a3b8;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 23.45px;
+}
+
+@media (min-width: 401px) {
+  .account-main-heading {
+    font-size: 24px;
+    line-height: 31.27px;
+  }
+}
+
+.logout-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-button {
+  padding: 8px 20px 8px 20px;
+  border-radius: 4px;
+  background-color: #e50914;
+  color: #ffffff;
+  font-family: roboto;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin-top: 50px;
+}
+
+.user-mail-id {
+  color: #1e293b;
+}
+
+@media (min-width: 401px) {
+  .user-mail-id {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31.27px;
+  }
+}
+
+.user-password {
+  color: #64748b;
+}
+
+@media (min-width: 401px) {
+  .user-password {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31.27px;
+  }
+}
+
+.premium-text {
+  color: #1e293b;
+}
+
+@media (min-width: 401px) {
+  .premium-text {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 31.27px;
+  }
+}

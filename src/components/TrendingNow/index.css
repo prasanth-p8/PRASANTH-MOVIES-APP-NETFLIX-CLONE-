@@ -1,0 +1,22 @@
+.trending-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.slick-container {
+  width: 90%;
+  max-width: 1100px;
+  margin-top: 10px;
+}
+
+.trending-now-heading {
+  font-family: roboto;
+  align-self: flex-start;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20.85px;
+  text-align: left;
+}
