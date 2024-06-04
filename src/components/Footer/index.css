@@ -2,13 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: transparent;
   color: #ffffff;
   text-align: center;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  min-height: 25%;
 }
 
 @media (min-width: 401px) {

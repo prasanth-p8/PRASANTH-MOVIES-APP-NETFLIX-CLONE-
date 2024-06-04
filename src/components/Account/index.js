@@ -18,7 +18,7 @@ const Account = props => {
   }
 
   return (
-    <div>
+    <section className="account-page">
       <Header />
       <div className="account-main-container">
         <h1 className="account-heading">Account</h1>
@@ -47,7 +47,7 @@ const Account = props => {
         </div>
       </div>
       <Footer />
-    </div>
+    </section>
   )
 }
 

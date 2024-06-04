@@ -20,3 +20,9 @@
   line-height: 20.85px;
   text-align: left;
 }
+
+@media all and (min-width: 401px) {
+  .originals-now-heading {
+    font-size: 28px;
+  }
+}

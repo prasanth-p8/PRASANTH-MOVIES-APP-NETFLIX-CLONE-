@@ -8,4 +8,76 @@
 .home-main-page {
   background-color: #131313;
   color: #ffffff;
+  max-width: 400px;
+}
+
+@media all and (min-width: 401px) {
+  .home-main-page {
+    max-width: 100%;
+  }
+}
+
+.home-poster-container {
+  max-width: 400px;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  font-family: roboto;
+}
+
+@media all and (min-width: 401px) {
+  .home-poster-container {
+    max-width: 100%;
+  }
+}
+
+@media all and (min-width: 401px) {
+  .home-poster-content {
+    margin-left: 75px;
+    margin-bottom: 75px;
+  }
+}
+
+.home-poster-heading {
+  font-weight: 600;
+}
+
+@media all and (min-width: 401px) {
+  .home-poster-heading {
+    font-size: 50px;
+  }
+}
+
+.home-poster-description {
+  font-family: HK Grotesk;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20.85px;
+  text-align: left;
+}
+
+@media all and (min-width: 401px) {
+  .home-poster-description {
+    font-size: 26px;
+    width: 700px;
+  }
+}
+
+.home-poster-play-button {
+  padding: 8px 24px 8px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #171f46;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+@media all and (min-width: 401px) {
+  .home-poster-play-button {
+    padding: 12px 30px 12px 30px;
+    border-radius: 6px;
+  }
 }

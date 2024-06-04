@@ -82,24 +82,32 @@ const Search = () => {
     const trueValue = true
 
     return (
-      <section className="popular-main-container">
+      <section className="search-main-container">
         <Header
           userSearch={searchMovie}
           showSearchBar={trueValue}
           searchValue={searchText}
         />
         {renderSearchPage && !NoSearch && (
-          <ul className="popular-list">
+          <ul className="search-list">
             {data.map(eachData => {
               const {id, posterPath, title} = eachData
 
               return (
-                <li key={id} className="popular-list-item">
-                  <img src={posterPath} alt={title} className="popular-image" />
+                <li key={id}>
+                  <img src={posterPath} alt={title} className="search-image" />
                 </li>
               )
             })}
           </ul>
+        )}
+        {!renderSearchPage && (
+          <div className="no-search-container">
+            <h1 className="no-search-heading">Uh oh!</h1>
+            <p className="no-search-description">
+              Your search for {searchText} did not find any matches.
+            </p>
+          </div>
         )}
       </section>
     )

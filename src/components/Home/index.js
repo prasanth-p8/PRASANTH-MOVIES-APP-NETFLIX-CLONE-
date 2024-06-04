@@ -73,19 +73,29 @@ const Home = () => {
 
   const renderSuccessHomeView = () => {
     const {data} = apiStatus
-    const {id, overview, title, posterPath} = data
+    const {id, overview, title, backdropPath} = data
 
     return (
       <section className="home-main-page">
-        <div className="home-poster-container">
-          <div>
-            <h1>{title}</h1>
-            <p>{overview}</p>
-            <button type="button">Play</button>
+        <div
+          style={{
+            backgroundImage: `url(${backdropPath})`,
+            backgroundSize: '100% 100%',
+          }}
+          className="home-poster-container"
+        >
+          <Header />
+          <div className="home-poster-content">
+            <h1 className="home-poster-heading">{title}</h1>
+            <p className="home-poster-description">{overview}</p>
+            <button type="button" className="home-poster-play-button">
+              Play
+            </button>
           </div>
         </div>
         <TrendingNow />
         <Originals />
+        <Footer />
       </section>
     )
   }
@@ -107,13 +117,7 @@ const Home = () => {
     }
   }
 
-  return (
-    <>
-      <Header />
-      <div>{renderHomePage()}</div>
-      <Footer />
-    </>
-  )
+  return renderHomePage()
 }
 
 export default Home

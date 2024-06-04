@@ -3,6 +3,8 @@ import Cookies from 'js-cookie'
 import Header from '../Header'
 import Footer from '../Footer'
 
+import './index.css'
+
 const apiConstants = {
   initial: 'INITIAL',
   inProgress: 'IN_PROGRESS',
@@ -73,13 +75,17 @@ const Popular = () => {
     const {data} = apiStatus
 
     return (
-      <ul className="popular-main-container">
+      <ul className="popular-main-list">
         {data.map(eachData => {
           const {id, posterPath, title} = eachData
 
           return (
             <li key={id}>
-              <img src={posterPath} alt={title} />
+              <img
+                src={posterPath}
+                alt={title}
+                className="popular-page-image"
+              />
             </li>
           )
         })}
@@ -108,13 +114,13 @@ const Popular = () => {
     }
   }
   return (
-    <>
+    <section className="popular-main-container">
       <Header />
 
       <div>{renderPopular()}</div>
 
       <Footer />
-    </>
+    </section>
   )
 }
 

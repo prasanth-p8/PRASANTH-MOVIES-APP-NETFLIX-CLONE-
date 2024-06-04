@@ -1,12 +1,20 @@
+.account-page {
+  background-color: #131313;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .account-main-container {
   padding: 40px;
-  margin-top: 40px;
   font-family: 'roboto';
+  min-height: 80vh;
+  background-color: #ffffff;
 }
 
 @media (min-width: 401px) {
   .account-main-container {
-    margin-top: -30px;
     padding: 120px;
   }
 }

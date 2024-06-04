@@ -12,6 +12,12 @@
   margin-top: 10px;
 }
 
+@media all and (min-width: 401px) {
+  .slick-container {
+    min-width: 90%;
+  }
+}
+
 .trending-now-heading {
   font-family: roboto;
   align-self: flex-start;
@@ -19,4 +25,10 @@
   font-weight: 600;
   line-height: 20.85px;
   text-align: left;
+}
+
+@media all and (min-width: 401px) {
+  .trending-now-heading {
+    font-size: 28px;
+  }
 }
