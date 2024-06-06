@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import TrendingNow from '../TrendingNow'
@@ -18,7 +19,6 @@ const Home = () => {
   const [apiStatus, setApiStatus] = useState({
     status: apiConstants.initial,
     data: null,
-    error: null,
   })
 
   const onSuccess = data => {
@@ -34,7 +34,6 @@ const Home = () => {
     setApiStatus({
       status: apiConstants.success,
       data: updateData,
-      error: null,
     })
   }
 
@@ -42,7 +41,6 @@ const Home = () => {
     setApiStatus({
       status: apiConstants.inProgress,
       data: null,
-      error: null,
     })
 
     const jwtToken = Cookies.get('jwt_token')
@@ -58,6 +56,11 @@ const Home = () => {
     const responseData = await response.json()
     if (response.ok) {
       onSuccess(responseData.results)
+    } else {
+      setApiStatus({
+        status: apiConstants.failure,
+        data: null,
+      })
     }
   }
 
@@ -66,9 +69,25 @@ const Home = () => {
   }, [])
 
   const renderLoadingHomeView = () => (
-    <div className="loading-spinner">
-      <Loader type="TailSpin" color="#D81F26" height={50} width={50} />
-    </div>
+    <>
+      <Header />
+      <div className="loading-spinner-home-poster" testid="loader">
+        <Loader
+          type="TailSpin"
+          color="#D81F26"
+          width={60}
+          height={60}
+          className="mobile-loader"
+        />
+        <Loader
+          type="TailSpin"
+          color="#D81F26"
+          width={90}
+          height={90}
+          className="desktop-loader"
+        />
+      </div>
+    </>
   )
 
   const renderSuccessHomeView = () => {
@@ -76,31 +95,45 @@ const Home = () => {
     const {id, overview, title, backdropPath} = data
 
     return (
-      <section className="home-main-page">
-        <div
-          style={{
-            backgroundImage: `url(${backdropPath})`,
-            backgroundSize: '100% 100%',
-          }}
-          className="home-poster-container"
-        >
-          <Header />
-          <div className="home-poster-content">
-            <h1 className="home-poster-heading">{title}</h1>
-            <p className="home-poster-description">{overview}</p>
+      <div
+        style={{
+          backgroundImage: `url(${backdropPath})`,
+          backgroundSize: '100% 100%',
+        }}
+        className="home-poster-container"
+      >
+        <Header />
+        <div className="home-poster-content">
+          <h1 className="home-poster-heading">{title}</h1>
+          <p className="home-poster-description">{overview}</p>
+          <Link to={`/movies/${id}`}>
             <button type="button" className="home-poster-play-button">
               Play
             </button>
-          </div>
+          </Link>
         </div>
-        <TrendingNow />
-        <Originals />
-        <Footer />
-      </section>
+      </div>
     )
   }
 
-  const renderFailureHomeView = () => <div>failure</div>
+  const renderFailureHomeView = () => (
+    <div>
+      <Header />
+      <div className="home-poster-failure-view">
+        <img
+          src="https://res.cloudinary.com/dlefoxknm/image/upload/v1717572642/alert-triangle_rznrel.png"
+          alt="retry warning"
+          className="retry-warning-image"
+        />
+        <p className="home-poster-failure-description">
+          Something went wrong. Please try again
+        </p>
+        <button onClick={randomMovieGen} className="home-poster-failure-button">
+          Try Again
+        </button>
+      </div>
+    </div>
+  )
 
   const renderHomePage = () => {
     const {status} = apiStatus
@@ -117,7 +150,14 @@ const Home = () => {
     }
   }
 
-  return renderHomePage()
+  return (
+    <section className="home-main-page">
+      {renderHomePage()}
+      <TrendingNow />
+      <Originals />
+      <Footer />
+    </section>
+  )
 }
 
 export default Home

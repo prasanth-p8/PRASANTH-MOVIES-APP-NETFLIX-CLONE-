@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
 import ReactStickSlider from '../ReactStickSlider'
 import './index.css'
 
@@ -14,7 +15,6 @@ const Originals = () => {
   const [apiStatus, setApiStatus] = useState({
     status: apiConstants.initial,
     data: null,
-    error: null,
   })
 
   const onSuccess = successData => {
@@ -29,15 +29,13 @@ const Originals = () => {
     setApiStatus({
       status: apiConstants.success,
       data: formattedData,
-      error: null,
     })
   }
 
-  const onFailure = failureData => {
+  const onFailure = () => {
     setApiStatus({
       status: apiConstants.failure,
       data: null,
-      error: failureData,
     })
   }
 
@@ -59,7 +57,7 @@ const Originals = () => {
     if (response.ok) {
       onSuccess(responseData.results)
     } else {
-      onFailure(responseData.error_msg)
+      onFailure()
     }
   }
 
@@ -67,26 +65,50 @@ const Originals = () => {
     getOriginals()
   }, [])
 
-  const renderLoadingView = () => <div>Loading</div>
+  const renderLoadingView = () => (
+    <div className="loading-spinner-slider" testid="loader">
+      <Loader
+        type="TailSpin"
+        color="#D81F26"
+        width={32}
+        height={32}
+        className="mobile-loader"
+      />
+      <Loader
+        type="TailSpin"
+        color="#D81F26"
+        width={60}
+        height={60}
+        className="desktop-loader"
+      />
+    </div>
+  )
 
   const renderSuccessView = () => {
     const {data} = apiStatus
 
     return (
-      <div className="originals-main-container">
-        <h1 className="originals-now-heading">Originals</h1>
-        <div className="slick-container">
-          <ReactStickSlider stickData={data} />
-        </div>
+      <div className="slick-container">
+        <ReactStickSlider stickData={data} />
       </div>
     )
   }
 
-  const renderFailureView = () => {
-    const {error} = apiStatus
-
-    return <div>{error}</div>
-  }
+  const renderFailureView = () => (
+    <div className="originals-failure-view">
+      <img
+        src="https://res.cloudinary.com/dlefoxknm/image/upload/v1717572642/alert-triangle_rznrel.png"
+        alt="retry warning"
+        className="originals-warning-image"
+      />
+      <p className="originals-failure-description">
+        Something went wrong. Please try again
+      </p>
+      <button onClick={getOriginals} className="originals-failure-button">
+        Try Again
+      </button>
+    </div>
+  )
 
   const renderOriginals = () => {
     const {status} = apiStatus
@@ -103,7 +125,12 @@ const Originals = () => {
     }
   }
 
-  return renderOriginals()
+  return (
+    <div className="originals-main-container">
+      <h1 className="originals-now-heading">Originals</h1>
+      {renderOriginals()}
+    </div>
+  )
 }
 
 export default Originals

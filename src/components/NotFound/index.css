@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 400px;
   min-height: 100vh;
   background-image: url('https://res.cloudinary.com/dlefoxknm/image/upload/v1715792549/mobile%20view%20not%20found%20background.png');
   background-size: cover;

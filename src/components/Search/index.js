@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react'
 import Cookies from 'js-cookie'
+import {Link} from 'react-router-dom'
+import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import './index.css'
 
@@ -14,7 +16,6 @@ const Search = () => {
   const [apiStatus, setApiStatus] = useState({
     status: apiConstants.initial,
     data: null,
-    error: null,
   })
   const [searchText, setSearchText] = useState('')
 
@@ -30,20 +31,18 @@ const Search = () => {
     setApiStatus({
       status: apiConstants.success,
       data: formattedData,
-      error: null,
     })
   }
 
-  const onFailure = failureData => {
+  const onFailure = () => {
     setApiStatus({
       status: apiConstants.failure,
       data: null,
-      error: failureData,
     })
   }
 
   const getSearch = async () => {
-    setApiStatus({status: apiConstants.inProgress, data: null, error: null})
+    setApiStatus({status: apiConstants.inProgress, data: null})
     const jwtToken = Cookies.get('jwt_token')
 
     const url = `https://apis.ccbp.in/movies-app/movies-search?search=${searchText}`
@@ -60,7 +59,7 @@ const Search = () => {
     if (response.ok) {
       onSuccess(responseData.results)
     } else {
-      onFailure(responseData.error_msg)
+      onFailure()
     }
   }
 
@@ -72,7 +71,27 @@ const Search = () => {
     setSearchText(value)
   }
 
-  const renderLoadingView = () => <div>Loading</div>
+  const renderLoadingView = () => (
+    <>
+      <Header />
+      <div className="loading-spinner-search" testid="loader">
+        <Loader
+          type="TailSpin"
+          color="#D81F26"
+          width="50"
+          heigth="50"
+          className="mobile-spinner"
+        />
+        <Loader
+          type="TailSpin"
+          color="#D81F26"
+          width={70}
+          heigth={70}
+          className="desktop-spinner"
+        />
+      </div>
+    </>
+  )
 
   const renderSuccessView = () => {
     const {data} = apiStatus
@@ -82,7 +101,7 @@ const Search = () => {
     const trueValue = true
 
     return (
-      <section className="search-main-container">
+      <div>
         <Header
           userSearch={searchMovie}
           showSearchBar={trueValue}
@@ -95,7 +114,13 @@ const Search = () => {
 
               return (
                 <li key={id}>
-                  <img src={posterPath} alt={title} className="search-image" />
+                  <Link to={`movies/${id}`}>
+                    <img
+                      src={posterPath}
+                      alt={title}
+                      className="search-image"
+                    />
+                  </Link>
                 </li>
               )
             })}
@@ -109,15 +134,28 @@ const Search = () => {
             </p>
           </div>
         )}
-      </section>
+      </div>
     )
   }
 
-  const renderFailureView = () => {
-    const {error} = apiStatus
-
-    return <div>{error}</div>
-  }
+  const renderFailureView = () => (
+    <div>
+      <Header />
+      <div className="search-failure-container">
+        <img
+          src="https://res.cloudinary.com/dlefoxknm/image/upload/v1717594964/Background-Complete_j9zdtk.png"
+          alt="search failure view"
+          className="search-failure-view"
+        />
+        <p className="search-failure-description">
+          Something went wrong. Please try again
+        </p>
+        <button onClick={getSearch} className="search-failure-button">
+          Try Again
+        </button>
+      </div>
+    </div>
+  )
 
   const renderSearch = () => {
     const {status} = apiStatus
@@ -133,7 +171,7 @@ const Search = () => {
         return null
     }
   }
-  return renderSearch()
+  return <section className="search-main-container">{renderSearch()}</section>
 }
 
 export default Search

@@ -1,7 +1,6 @@
 .search-main-container {
   min-height: 100vh;
   background-color: #131313;
-  max-width: 400vw;
 }
 
 @media all and (min-width: 401px) {
@@ -76,5 +75,93 @@
     height: 31px;
     font-size: 24px;
     line-height: 31.27px;
+  }
+}
+
+.loading-spinner-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+@media (min-width: 401px) {
+  .mobile-spinner {
+    display: none;
+  }
+}
+
+.desktop-spinner {
+  display: none;
+}
+
+@media (min-width: 401px) {
+  .desktop-spinner {
+    display: flex;
+  }
+}
+
+.search-failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+.search-failure-description {
+  font-family: roboto;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+@media (min-width: 401px) {
+  .search-failure-description {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 801px) {
+  .search-failure-description {
+    font-size: 24px;
+  }
+}
+
+.search-failure-button {
+  font-family: roboto;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #171f46;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 110px;
+  border-radius: 4px;
+  height: 40px;
+}
+
+@media (min-width: 401px) {
+  .search-failure-button {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 801px) {
+  .search-failure-button {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 401px) {
+  .search-failure-view {
+    width: 295px;
+    height: 196px;
+  }
+}
+
+@media (min-width: 801px) {
+  .search-failure-view {
+    width: 375px;
+    height: 276px;
   }
 }

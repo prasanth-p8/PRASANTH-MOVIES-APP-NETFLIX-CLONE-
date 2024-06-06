@@ -1,5 +1,7 @@
 import {useState, useEffect} from 'react'
 import Cookies from 'js-cookie'
+import {Link} from 'react-router-dom'
+import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import Footer from '../Footer'
 
@@ -16,7 +18,6 @@ const Popular = () => {
   const [apiStatus, setApiStatus] = useState({
     status: apiConstants.initial,
     data: null,
-    error: null,
   })
 
   const onSuccess = successData => {
@@ -31,20 +32,18 @@ const Popular = () => {
     setApiStatus({
       status: apiConstants.success,
       data: formattedData,
-      error: null,
     })
   }
 
-  const onFailure = failureData => {
+  const onFailure = () => {
     setApiStatus({
       status: apiConstants.failure,
       data: null,
-      error: failureData,
     })
   }
 
   const getPopular = async () => {
-    setApiStatus({status: apiConstants.inProgress, data: null, error: null})
+    setApiStatus({status: apiConstants.inProgress, data: null})
     const jwtToken = Cookies.get('jwt_token')
 
     const url = 'https://apis.ccbp.in/movies-app/popular-movies'
@@ -61,7 +60,7 @@ const Popular = () => {
     if (response.ok) {
       onSuccess(responseData.results)
     } else {
-      onFailure(responseData.error_msg)
+      onFailure()
     }
   }
 
@@ -69,35 +68,74 @@ const Popular = () => {
     getPopular()
   }, [])
 
-  const renderLoadingView = () => <div>Loading</div>
+  const renderLoadingView = () => (
+    <>
+      <Header />
+      <div className="loading-spinner-popular" testid="loader">
+        <Loader
+          type="TailSpin"
+          color="#D81F26"
+          width="50"
+          heigth="50"
+          className="mobile-spinner"
+        />
+        <Loader
+          type="TailSpin"
+          color="#D81F26"
+          width={70}
+          heigth={70}
+          className="desktop-spinner"
+        />
+      </div>
+    </>
+  )
 
   const renderSuccessView = () => {
     const {data} = apiStatus
 
     return (
-      <ul className="popular-main-list">
-        {data.map(eachData => {
-          const {id, posterPath, title} = eachData
+      <>
+        <Header />
+        <ul className="popular-main-list">
+          {data.map(eachData => {
+            const {id, posterPath, title} = eachData
 
-          return (
-            <li key={id}>
-              <img
-                src={posterPath}
-                alt={title}
-                className="popular-page-image"
-              />
-            </li>
-          )
-        })}
-      </ul>
+            return (
+              <li key={id}>
+                <Link to={`movies/${id}`}>
+                  <img
+                    src={posterPath}
+                    alt={title}
+                    className="popular-page-image"
+                  />
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
+        <Footer />
+      </>
     )
   }
 
-  const renderFailureView = () => {
-    const {error} = apiStatus
-
-    return <div>{error}</div>
-  }
+  const renderFailureView = () => (
+    <div>
+      <Header />
+      <div className="popular-failure-container">
+        <img
+          src="https://res.cloudinary.com/dlefoxknm/image/upload/v1717594964/Background-Complete_j9zdtk.png"
+          alt="popular failure view"
+          className="popular-failure-view"
+        />
+        <p className="popular-failure-description">
+          Something went wrong. Please try again
+        </p>
+        <button onClick={getPopular} className="popular-failure-button">
+          Try Again
+        </button>
+      </div>
+    </div>
+  )
 
   const renderPopular = () => {
     const {status} = apiStatus
@@ -113,15 +151,7 @@ const Popular = () => {
         return null
     }
   }
-  return (
-    <section className="popular-main-container">
-      <Header />
-
-      <div>{renderPopular()}</div>
-
-      <Footer />
-    </section>
-  )
+  return <section className="popular-main-container">{renderPopular()}</section>
 }
 
 export default Popular

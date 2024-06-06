@@ -1,6 +1,7 @@
 .header-mobile-container {
-  padding: 10px 20px 10px 20px;
+  padding: 10px 30px 10px 30px;
   background-color: transparent;
+  width: 100%;
 }
 
 .mobile-container {
@@ -9,23 +10,23 @@
   justify-content: space-between;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 800px) {
   .header-desktop-container {
     display: none;
   }
 }
 
-@media (min-width: 401px) {
+@media (min-width: 801px) {
   .header-mobile-container {
     display: none;
   }
 }
 
-@media (min-width: 401px) {
+@media (min-width: 801px) {
   .header-desktop-container {
     display: flex;
     justify-content: space-between;
-    padding: 10px 20px 10px 20px;
+    padding: 10px 30px 10px 30px;
     align-items: center;
     background-color: transparent;
   }
@@ -34,7 +35,7 @@
 .website-logo {
   width: 100px;
 }
-@media (min-width: 401px) {
+@media (min-width: 801px) {
   .website-logo {
     width: 180px;
   }
@@ -88,6 +89,7 @@
 .hamburger-menu-list {
   display: flex;
   justify-content: space-between;
+  background-color: transparent;
   font-size: 16px;
   list-style: none;
   padding-left: 0;
@@ -111,7 +113,7 @@
   outline: none;
 }
 
-@media all and (min-width: 401px) {
+@media all and (min-width: 801px) {
   .search-input {
     width: 195px;
     font-size: 18px;
@@ -132,7 +134,7 @@
   border: 1px solid #ffffff;
 }
 
-@media all and (min-width: 401px) {
+@media all and (min-width: 801px) {
   .search-bar-container {
     width: 250px;
     height: 40px;
@@ -150,7 +152,7 @@
   border-radius: 0px 3px 3px 0px;
 }
 
-@media all and (min-width: 401px) {
+@media all and (min-width: 801px) {
   .search-bar-button {
     min-width: 45px;
     height: 36px;

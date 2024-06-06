@@ -1,36 +1,44 @@
-.loading-spinner {
+.loading-spinner-home-poster {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 70vh;
+  border-radius: 4px;
+  width: 320px;
+  height: 280px;
+  margin-left: 8%;
+  padding: 10px;
+  background-color: #0d0d0d;
+}
+
+@media (min-width: 401px) {
+  .loading-spinner-home-poster {
+    width: 84%;
+    height: 400px;
+  }
+}
+
+@media (min-width: 801px) {
+  .loading-spinner-home-poster {
+    width: 86%;
+    height: 500px;
+    margin-left: 7%;
+  }
 }
 
 .home-main-page {
   background-color: #131313;
   color: #ffffff;
-  max-width: 400px;
-}
-
-@media all and (min-width: 401px) {
-  .home-main-page {
-    max-width: 100%;
-  }
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 .home-poster-container {
-  max-width: 400px;
   min-height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
   font-family: roboto;
-}
-
-@media all and (min-width: 401px) {
-  .home-poster-container {
-    max-width: 100%;
-  }
 }
 
 @media all and (min-width: 401px) {
@@ -79,5 +87,95 @@
   .home-poster-play-button {
     padding: 12px 30px 12px 30px;
     border-radius: 6px;
+  }
+}
+
+.home-poster-failure-view {
+  width: 320px;
+  height: 280px;
+  margin-left: 40px;
+  padding: 10px;
+  background-color: #0d0d0d;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 401px) {
+  .home-poster-failure-view {
+    height: 400px;
+    width: 86%;
+  }
+}
+
+@media (min-width: 801px) {
+  .home-poster-failure-view {
+    height: 500px;
+    width: 80%;
+    margin-left: 9%;
+  }
+}
+
+.home-poster-failure-description {
+  font-family: roboto;
+  line-height: 15.64px;
+}
+
+@media (min-width: 401px) {
+  .home-poster-failure-description {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 801px) {
+  .home-poster-failure-description {
+    font-size: 20px;
+  }
+}
+
+.home-poster-failure-button {
+  width: 100px;
+  height: 28px;
+  padding: 2px 12px 2px 12px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #171f46;
+  font-family: roboto;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+@media (min-width: 401px) {
+  .home-poster-failure-button {
+    width: 120px;
+    height: 34px;
+    padding: 3px 16px 3px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 801px) {
+  .home-poster-failure-button {
+    width: 150px;
+    height: 38px;
+    padding: 4px 18px 4px 18px;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 401px) {
+  .retry-warning-image {
+    width: 60px;
+  }
+}
+
+@media (min-width: 801px) {
+  .retry-warning-image {
+    width: 70px;
   }
 }

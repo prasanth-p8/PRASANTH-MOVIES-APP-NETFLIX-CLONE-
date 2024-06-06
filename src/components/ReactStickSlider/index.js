@@ -1,4 +1,5 @@
 import Slider from 'react-slick'
+import {Link} from 'react-router-dom'
 import './index.css'
 
 const settings = {
@@ -27,15 +28,18 @@ const settings = {
 
 const ReactStickSlider = props => {
   const {stickData} = props
+  console.log(stickData)
 
   return (
     <Slider {...settings}>
       {stickData.map(eachData => {
         const {id, posterPath, title} = eachData
         return (
-          <div className="slick-item" key={id}>
-            <img className="logo-image" src={posterPath} alt={title} />
-          </div>
+          <Link to={`/movies/${id}`}>
+            <div className="slick-item" key={id}>
+              <img className="logo-image" src={posterPath} alt={title} />
+            </div>
+          </Link>
         )
       })}
     </Slider>

@@ -9,7 +9,7 @@
 
 @media (min-width: 401px) {
   .footer-container {
-    min-height: 15%;
+    min-height: 25vh;
   }
 }
 

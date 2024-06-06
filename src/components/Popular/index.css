@@ -1,6 +1,7 @@
 .popular-main-container {
   max-width: 400px;
   background-color: #131313;
+  min-height: 100vh;
 }
 
 @media all and (min-width: 401px) {
@@ -38,5 +39,93 @@
     margin-bottom: 25px;
     margin-right: 25px;
     border-radius: 8px;
+  }
+}
+
+.loading-spinner-popular {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+@media (min-width: 401px) {
+  .mobile-spinner {
+    display: none;
+  }
+}
+
+.desktop-spinner {
+  display: none;
+}
+
+@media (min-width: 401px) {
+  .desktop-spinner {
+    display: flex;
+  }
+}
+
+.popular-failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+.popular-failure-description {
+  font-family: roboto;
+  line-height: 24px;
+  color: #ffffff;
+}
+
+@media (min-width: 401px) {
+  .popular-failure-description {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 801px) {
+  .popular-failure-description {
+    font-size: 24px;
+  }
+}
+
+.popular-failure-button {
+  font-family: roboto;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #171f46;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 110px;
+  border-radius: 4px;
+  height: 40px;
+}
+
+@media (min-width: 401px) {
+  .popular-failure-button {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 801px) {
+  .popular-failure-button {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 401px) {
+  .popular-failure-view {
+    width: 295px;
+    height: 196px;
+  }
+}
+
+@media (min-width: 801px) {
+  .popular-failure-view {
+    width: 375px;
+    height: 276px;
   }
 }
