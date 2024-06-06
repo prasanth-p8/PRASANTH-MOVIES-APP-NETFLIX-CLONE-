@@ -128,7 +128,11 @@ const Search = () => {
         )}
         {!renderSearchPage && (
           <div className="no-search-container">
-            <h1 className="no-search-heading">Uh oh!</h1>
+            <img
+              src="https://res.cloudinary.com/dlefoxknm/image/upload/v1717658029/Group_7394_aphun6.png"
+              alt="no movies"
+              className="no-search-image"
+            />
             <p className="no-search-description">
               Your search for {searchText} did not find any matches.
             </p>
@@ -144,13 +148,17 @@ const Search = () => {
       <div className="search-failure-container">
         <img
           src="https://res.cloudinary.com/dlefoxknm/image/upload/v1717594964/Background-Complete_j9zdtk.png"
-          alt="search failure view"
+          alt="failure view"
           className="search-failure-view"
         />
         <p className="search-failure-description">
           Something went wrong. Please try again
         </p>
-        <button onClick={getSearch} className="search-failure-button">
+        <button
+          type="button"
+          onClick={getSearch}
+          className="search-failure-button"
+        >
           Try Again
         </button>
       </div>

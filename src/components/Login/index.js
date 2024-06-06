@@ -24,7 +24,7 @@ const Login = props => {
     Cookies.set('jwt_token', jwtToken, {expires: 30})
     localStorage.setItem('username', username)
     localStorage.setItem('password', password)
-    history.replace('./')
+    history.replace('/')
   }
 
   const onSubmitFailure = message => {

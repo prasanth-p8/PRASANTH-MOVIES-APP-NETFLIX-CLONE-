@@ -128,7 +128,11 @@ const Home = () => {
         <p className="home-poster-failure-description">
           Something went wrong. Please try again
         </p>
-        <button onClick={randomMovieGen} className="home-poster-failure-button">
+        <button
+          type="button"
+          onClick={randomMovieGen}
+          className="home-poster-failure-button"
+        >
           Try Again
         </button>
       </div>

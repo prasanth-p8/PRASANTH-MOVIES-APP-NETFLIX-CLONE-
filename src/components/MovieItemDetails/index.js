@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import Cookies from 'js-cookie'
 import {Link} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
+import {minutesToHours, getYear, format} from 'date-fns'
 import Header from '../Header'
 import Footer from '../Footer'
 import './index.css'
@@ -25,6 +26,7 @@ const MovieItemDetails = props => {
       id: eachLang.id,
       englishName: eachLang.english_name,
     }))
+
     const similarMovie = successData.similar_movies.map(eachMovie => ({
       backdropPath: eachMovie.backdrop_path,
       posterPath: eachMovie.poster_path,
@@ -132,6 +134,11 @@ const MovieItemDetails = props => {
       voteCount,
     } = movieDetails
 
+    const hour = minutesToHours(runtime)
+    const min = runtime % 60
+    const year = getYear(new Date(releaseDate))
+    const formattedDate = format(new Date(releaseDate), 'do MMMM yyyy')
+
     return (
       <div>
         <div
@@ -145,9 +152,11 @@ const MovieItemDetails = props => {
           <div className="movie-item-content">
             <h1 className="movie-title">{title}</h1>
             <ul className="movie-details-list">
-              <li>{runtime}</li>
+              <li>
+                {hour}h {min}m
+              </li>
               <li className="adult-content">{adult ? 'A' : 'U/A'}</li>
-              <li>{releaseDate}</li>
+              <li>{year}</li>
             </ul>
             <p className="movie-item-description">{overview}</p>
             <Link to={`/movies/${id}`} className="movie-item-link">
@@ -159,46 +168,52 @@ const MovieItemDetails = props => {
         </div>
         <ul className="movie-item-detail-content">
           <li className="movie-item-detail-section">
-            <p className="details-title">Genres</p>
+            <h1 className="details-title">Genres</h1>
             <ul className="catagory-list">
               {genres.map(eachGenre => (
-                <li key={eachGenre.id}>{eachGenre.name}</li>
+                <li key={eachGenre.id}>
+                  <p>{eachGenre.name}</p>
+                </li>
               ))}
             </ul>
           </li>
           <li className="movie-item-detail-section">
-            <p className="details-title">Audio Available</p>
+            <h1 className="details-title">Audio Available</h1>
             <ul className="catagory-list">
               {spokenLanguage.map(lang => (
-                <li key={lang.id}>{lang.englishName}</li>
+                <li key={lang.id}>
+                  <p>{lang.englishName}</p>
+                </li>
               ))}
             </ul>
           </li>
           <li className="movie-item-detail-section">
-            <p className="details-title">Rating Count</p>
+            <h1 className="details-title">Rating Count</h1>
             <p className="details-value">{voteCount}</p>
-            <p className="details-title">Rating Average</p>
+            <h1 className="details-title">Rating Average</h1>
             <p className="details-value">{voteAverage}</p>
           </li>
           <li className="movie-item-detail-section">
-            <p className="details-title">Budget</p>
+            <h1 className="details-title">Budget</h1>
             <p className="details-value">{budget}</p>
-            <p className="details-title">Release Date</p>
-            <p className="details-value">{releaseDate}</p>
+            <h1 className="details-title">Release Date</h1>
+            <p className="details-value">{formattedDate}</p>
           </li>
         </ul>
         <div className="similar-movies-container">
           <h1 className="similar-movies-heading">More like this</h1>
           <ul className="similar-movies-list">
             {similarMovie.map(eachMovie => (
-              <Link to={`/movies/${eachMovie.id}`} target="blank">
-                <li key={eachMovie.id}>
-                  <img
-                    src={eachMovie.posterPath}
-                    alt={eachMovie.title}
-                    className="similar-movies-image"
-                  />
-                </li>
+              <Link
+                key={eachMovie.id}
+                onClick={getMovieItemDetails}
+                to={`/movies/${eachMovie.id}`}
+              >
+                <img
+                  src={eachMovie.posterPath}
+                  alt={eachMovie.title}
+                  className="similar-movies-image"
+                />
               </Link>
             ))}
           </ul>
@@ -214,13 +229,14 @@ const MovieItemDetails = props => {
       <div className="movie-item-failure-container">
         <img
           src="https://res.cloudinary.com/dlefoxknm/image/upload/v1717594964/Background-Complete_j9zdtk.png"
-          alt="movie item failure view"
+          alt="failure view"
           className="movie-item-failure-view"
         />
         <p className="movie-item-failure-description">
           Something went wrong. Please try again
         </p>
         <button
+          type="button"
           onClick={getMovieItemDetails}
           className="movie-item-failure-button"
         >

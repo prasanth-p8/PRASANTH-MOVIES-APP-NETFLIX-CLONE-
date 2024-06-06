@@ -91,30 +91,22 @@ const Header = props => {
         </div>
         {displayHamburger && (
           <ul value={displayHamburger} className="hamburger-menu-list">
-            <li>
-              <Link className="hamburger-link-item" to="/">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className="hamburger-link-item" to="/popular">
-                Popular
-              </Link>
-            </li>
-            <li>
-              <Link className="hamburger-link-item" to="/account">
-                Account
-              </Link>
-            </li>
-            <li>
-              <button
-                onClick={closeHamburgerMenu}
-                className="hamburger-close-button"
-                type="button"
-              >
-                <IoIosCloseCircle size="25" />
-              </button>
-            </li>
+            <Link className="hamburger-link-item" to="/">
+              Home
+            </Link>
+            <Link className="hamburger-link-item" to="/popular">
+              Popular
+            </Link>
+            <Link className="hamburger-link-item" to="/account">
+              Account
+            </Link>
+            <button
+              onClick={closeHamburgerMenu}
+              className="hamburger-close-button"
+              type="button"
+            >
+              <IoIosCloseCircle size="25" />
+            </button>
           </ul>
         )}
       </section>
@@ -169,7 +161,7 @@ const Header = props => {
           <Link to="/account" className="link-item">
             <img
               src="https://res.cloudinary.com/dlefoxknm/image/upload/v1715425326/netflix%20clone%20app%20avatar%20image.png"
-              alt="website-avatar"
+              alt="profile"
               className="website-avatar"
             />
           </Link>

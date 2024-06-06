@@ -44,21 +44,10 @@
   text-align: center;
 }
 
-.no-search-heading {
-  background-image: url('https://res.cloudinary.com/dlefoxknm/image/upload/v1717516531/Layer_2_stmmda.png');
-  color: #4d4d4d;
-  width: 209.52px;
-  padding-top: 40px;
-  height: 176px;
-}
-
-@media all and (min-width: 401px) {
-  .no-search-heading {
-    padding-top: 80px;
-    font-size: 45px;
-    background-image: url('https://res.cloudinary.com/dlefoxknm/image/upload/v1717519157/Group_b1vlku.png');
-    width: 450px;
-    height: 378px;
+@media (min-width: 801px) {
+  .no-search-image {
+    width: 400px;
+    height: 348px;
   }
 }
 

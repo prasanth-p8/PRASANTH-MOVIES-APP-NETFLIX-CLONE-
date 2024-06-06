@@ -1,4 +1,4 @@
-import Cookie from 'js-cookie'
+import Cookies from 'js-cookie'
 import Header from '../Header'
 import Footer from '../Footer'
 
@@ -13,8 +13,8 @@ const Account = props => {
   const passwordInAsterisk = '*'.repeat(password.length)
 
   const logoutUser = () => {
-    Cookie.remove('jwt_token')
-    history.replace('./login')
+    Cookies.remove('jwt_token')
+    history.replace('/login')
   }
 
   return (
@@ -35,7 +35,7 @@ const Account = props => {
           <p className="account-main-heading">Plan details</p>
           <div className="account-main-sub">
             <p className="premium-text">
-              Premium <span className="plan-name">Ultra HD</span>
+              Premium <p className="plan-name">Ultra HD</p>
             </p>
           </div>
         </div>

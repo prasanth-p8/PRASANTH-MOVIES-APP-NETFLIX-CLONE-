@@ -124,13 +124,17 @@ const Popular = () => {
       <div className="popular-failure-container">
         <img
           src="https://res.cloudinary.com/dlefoxknm/image/upload/v1717594964/Background-Complete_j9zdtk.png"
-          alt="popular failure view"
+          alt="failure view"
           className="popular-failure-view"
         />
         <p className="popular-failure-description">
           Something went wrong. Please try again
         </p>
-        <button onClick={getPopular} className="popular-failure-button">
+        <button
+          type="button"
+          onClick={getPopular}
+          className="popular-failure-button"
+        >
           Try Again
         </button>
       </div>

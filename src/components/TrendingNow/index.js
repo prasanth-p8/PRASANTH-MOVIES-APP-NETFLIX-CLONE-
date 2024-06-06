@@ -99,13 +99,17 @@ const TrendingNow = () => {
     <div className="trending-failure-view">
       <img
         src="https://res.cloudinary.com/dlefoxknm/image/upload/v1717572642/alert-triangle_rznrel.png"
-        alt="retry warning"
+        alt="failure view"
         className="trending-warning-image"
       />
       <p className="trending-failure-description">
         Something went wrong. Please try again
       </p>
-      <button onClick={getTrendingNow} className="trending-failure-button">
+      <button
+        type="button"
+        onClick={getTrendingNow}
+        className="trending-failure-button"
+      >
         Try Again
       </button>
     </div>

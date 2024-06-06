@@ -98,13 +98,17 @@ const Originals = () => {
     <div className="originals-failure-view">
       <img
         src="https://res.cloudinary.com/dlefoxknm/image/upload/v1717572642/alert-triangle_rznrel.png"
-        alt="retry warning"
+        alt="failure view"
         className="originals-warning-image"
       />
       <p className="originals-failure-description">
         Something went wrong. Please try again
       </p>
-      <button onClick={getOriginals} className="originals-failure-button">
+      <button
+        type="button"
+        onClick={getOriginals}
+        className="originals-failure-button"
+      >
         Try Again
       </button>
     </div>
