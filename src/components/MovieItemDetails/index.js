@@ -65,6 +65,10 @@ const MovieItemDetails = props => {
     })
   }
 
+  const {match} = props
+  const {params} = match
+  const {id} = params
+
   const getMovieItemDetails = async () => {
     setApiStatus({
       status: apiConstants.inProgress,
@@ -72,7 +76,7 @@ const MovieItemDetails = props => {
       similarMovie: null,
     })
     const jwtToken = Cookies.get('jwt_token')
-    const {id} = props.match.params
+
     const url = `https://apis.ccbp.in/movies-app/movies/${id}`
 
     const options = {
@@ -93,7 +97,7 @@ const MovieItemDetails = props => {
 
   useEffect(() => {
     getMovieItemDetails()
-  }, [])
+  }, [id])
 
   const renderLoadingView = () => (
     <>
@@ -124,7 +128,6 @@ const MovieItemDetails = props => {
       backdropPath,
       budget,
       genres,
-      id,
       overview,
       releaseDate,
       runtime,

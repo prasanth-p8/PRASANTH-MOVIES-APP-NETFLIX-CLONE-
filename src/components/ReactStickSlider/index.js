@@ -35,7 +35,7 @@ const ReactStickSlider = props => {
       {stickData.map(eachData => {
         const {id, posterPath, title} = eachData
         return (
-          <Link to={`/movies/${id}`}>
+          <Link key={id} to={`/movies/${id}`}>
             <div className="slick-item" key={id}>
               <img className="logo-image" src={posterPath} alt={title} />
             </div>
