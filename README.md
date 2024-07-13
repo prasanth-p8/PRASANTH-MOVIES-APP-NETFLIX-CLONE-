@@ -48,28 +48,29 @@ Check out the live demo of the application: [Live Demo](https://prasanthnetflix.
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/prasanth-p8/PRASANTH-MOVIES-APP-NETFLIX-CLONE-.git
-```
+   ```bash
+    git clone https://github.com/prasanth-p8/PRASANTH-MOVIES-APP-NETFLIX-CLONE-.git
+   ```
 
 2. Navigate to the project directory:
 
-```bash
-cd PRASANTH-MOVIES-APP-NETFLIX-CLONE-
-```
+   ```bash
+   cd PRASANTH-MOVIES-APP-NETFLIX-CLONE-
+   ```
 
 3. Install the dependencies:
 
-```bash
-npm install```
+   ```bash
+   npm install
+   ```
 
 ## Usage
 
 1. Start the development server:
 
-```bash
-npm start
-```
+   ```bash
+   npm start
+   ```
 
 2. Open your browser and go to `http://localhost:3000` to view the app.
 
@@ -81,6 +82,6 @@ Contributions are welcome! Please fork the repository and create a pull request 
 
 For any questions or suggestions, feel free to reach out:
 
-**LinkedIn:** `https://www.linkedin.com/in/p-prasanth/`
-**Email:** prasanthberlin@gmail.com
-**GitHub:** `https://github.com/prasanth-p8`
+ - **LinkedIn:** [https://www.linkedin.com/in/p-prasanth](https://www.linkedin.com/in/p-prasanth)
+ - **Email:** prasanthberlin@gmail.com
+ - **GitHub:** [https://github.com/prasanth-p8](https://github.com/prasanth-p8)
