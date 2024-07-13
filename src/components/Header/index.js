@@ -62,7 +62,6 @@ const Header = props => {
                 <button
                   type="button"
                   className="search-bar-button"
-                  testid="searchButton"
                   onClick={searchTheValueClick}
                 >
                   <HiOutlineSearch size={16} color="#ffffff" />
@@ -91,22 +90,30 @@ const Header = props => {
         </div>
         {displayHamburger && (
           <ul value={displayHamburger} className="hamburger-menu-list">
-            <Link className="hamburger-link-item" to="/">
-              Home
-            </Link>
-            <Link className="hamburger-link-item" to="/popular">
-              Popular
-            </Link>
-            <Link className="hamburger-link-item" to="/account">
-              Account
-            </Link>
-            <button
-              onClick={closeHamburgerMenu}
-              className="hamburger-close-button"
-              type="button"
-            >
-              <IoIosCloseCircle size="25" />
-            </button>
+            <li>
+              <Link className="hamburger-link-item" to="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link className="hamburger-link-item" to="/popular">
+                Popular
+              </Link>
+            </li>
+            <li>
+              <Link className="hamburger-link-item" to="/account">
+                Account
+              </Link>
+            </li>
+            <li>
+              <button
+                onClick={closeHamburgerMenu}
+                className="hamburger-close-button"
+                type="button"
+              >
+                <IoIosCloseCircle size="25" />
+              </button>
+            </li>
           </ul>
         )}
       </section>
@@ -132,7 +139,7 @@ const Header = props => {
               <input
                 type="search"
                 className="search-input"
-                placeholder="Search"
+                placeholder="search"
                 onKeyDown={searchTheValueEnter}
                 value={userSearchInput}
                 onChange={userSearchValue}

@@ -23,20 +23,19 @@ const Account = props => {
       <div className="account-main-container">
         <h1 className="account-heading">Account</h1>
         <hr />
-        <div className="account-main-1">
+        <div className="account-main">
           <p className="account-main-heading">Member ship</p>
           <div className="account-main-sub">
             <p className="user-mail-id">{username}@gmail.com</p>
-            <p className="user-password">Password: {passwordInAsterisk}</p>
+            <p className="user-password">Password : {passwordInAsterisk}</p>
           </div>
         </div>
         <hr />
-        <div className="account-main-2">
-          <p className="account-main-heading">Plan details</p>
-          <div className="account-main-sub">
-            <p className="premium-text">
-              Premium <p className="plan-name">Ultra HD</p>
-            </p>
+        <div className="account-main">
+          <p className="account-main-heading">Plan details </p>
+          <div className="plan-details-container">
+            <p className="premium-text">Premium</p>
+            <p className="plan-name">Ultra HD</p>
           </div>
         </div>
         <hr />

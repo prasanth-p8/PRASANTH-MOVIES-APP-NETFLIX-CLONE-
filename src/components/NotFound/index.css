@@ -1,4 +1,4 @@
-.not-found-container {
+.not-found-main-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,22 +11,48 @@
 }
 
 @media all and (min-width: 401px) {
-  .not-found-container {
+  .not-found-main-container {
     background-image: url('https://res.cloudinary.com/dlefoxknm/image/upload/v1715792666/snow-removal-machine-working-high-ski-slope-snowstorm_454047-2149_1_bvzpsk.png');
-    max-width: 100%;
     background-position: center;
+    max-width: 100%;
+  }
+}
+
+.not-found-container {
+  max-width: 350px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media all and (min-width: 401px) {
+  .not-found-container {
+    max-width: 400px;
+  }
+}
+
+@media all and (min-width: 801px) {
+  .not-found-container {
+    max-width: 600px;
   }
 }
 
 .not-found-heading {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: 700;
   line-height: 52.12px;
 }
 
 @media all and (min-width: 401px) {
   .not-found-heading {
-    font-size: 76px;
+    font-size: 50px;
+  }
+}
+
+@media all and (min-width: 801px) {
+  .not-found-heading {
+    font-size: 70px;
   }
 }
 
@@ -37,9 +63,18 @@
 }
 @media all and (min-width: 401px) {
   .not-found-description {
-    font-size: 24px;
+    font-size: 20px;
     line-height: 31.27px;
-    width: 620px;
+    width: 380px;
+    text-align: center;
+  }
+}
+
+@media all and (min-width: 801px) {
+  .not-found-description {
+    font-size: 24px;
+    line-height: 34.27px;
+    width: 580px;
     text-align: center;
   }
 }

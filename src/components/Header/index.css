@@ -79,6 +79,7 @@
 
 .link-item {
   color: #ffffff;
+  text-decoration: none;
 }
 
 .hamburger-mobile-icon {
@@ -103,19 +104,19 @@
 
 .hamburger-link-item {
   color: #ffffff;
+  text-decoration: none;
 }
 
 .search-input {
   color: #babdc2;
   background-color: transparent;
   border: none;
-  width: 85px;
+  width: 100%;
   outline: none;
 }
 
 @media all and (min-width: 801px) {
   .search-input {
-    width: 195px;
     font-size: 18px;
     outline: none;
   }
@@ -125,36 +126,31 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 124px;
-  height: 24px;
-  top: 26px;
-  left: 174px;
-  padding: 4px 10px 4px 8px;
+  width: 134px;
+  height: 25px;
+  padding-left: 6px;
   border-radius: 4px;
   border: 1px solid #ffffff;
 }
 
-@media all and (min-width: 801px) {
+@media all and (min-width: 401px) {
   .search-bar-container {
-    width: 250px;
-    height: 40px;
+    width: 170px;
+    height: 35px;
+  }
+}
+
+@media all and (min-width: 911px) {
+  .search-bar-container {
+    width: 270px;
+    height: 45px;
   }
 }
 
 .search-bar-button {
   background-color: #2c2b2b;
-  width: 30px;
-  height: 22px;
   border: none;
-  top: 27px;
-  left: 257px;
-  gap: 0px;
   border-radius: 0px 3px 3px 0px;
-}
-
-@media all and (min-width: 801px) {
-  .search-bar-button {
-    min-width: 45px;
-    height: 36px;
-  }
+  height: 100%;
+  width: 25%;
 }

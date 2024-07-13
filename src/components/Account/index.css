@@ -13,46 +13,63 @@
   background-color: #ffffff;
 }
 
-@media (min-width: 401px) {
+@media (min-width: 501px) {
+  .account-main-container {
+    padding: 80px;
+  }
+}
+
+@media (min-width: 801px) {
   .account-main-container {
     padding: 120px;
+  }
+}
+
+@media (min-width: 501px) {
+  .account-main-sub {
+    min-width: 200px;
+  }
+}
+
+@media (min-width: 801px) {
+  .account-main-sub {
+    min-width: 250px;
   }
 }
 
 .account-heading {
   font-size: 24px;
   font-weight: 500;
-  line-height: 28.13px;
-  text-align: left;
 }
 
-@media (min-width: 401px) {
+@media (min-width: 501px) {
   .account-heading {
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 700;
-    line-height: 46.91px;
-    text-align: left;
   }
 }
 
-.account-main-1 {
-  display: flex;
-  justify-content: space-between;
-  max-width: 270px;
-}
-
-.account-main-2 {
-  display: flex;
-  justify-content: space-between;
-  max-width: 250px;
-}
-
-@media (min-width: 401px) {
-  .account-main-1 {
-    max-width: 400px;
+@media (min-width: 801px) {
+  .account-heading {
+    font-size: 32px;
   }
-  .account-main-2 {
-    max-width: 385px;
+}
+
+.account-main {
+  display: flex;
+  justify-content: space-between;
+  max-width: 280px;
+}
+
+@media (min-width: 501px) {
+  .account-main {
+    max-width: 350px;
+  }
+}
+
+@media (min-width: 801px) {
+  .account-main {
+    max-width: 430px;
   }
 }
 
@@ -60,8 +77,6 @@
   border: #1e293b 1px solid;
   border-radius: 2px;
   padding: 2px 4px 2px 4px;
-  width: 64px;
-  height: 22px;
   margin-left: 5px;
 }
 
@@ -69,13 +84,21 @@
   color: #94a3b8;
   font-size: 18px;
   font-weight: 600;
-  line-height: 23.45px;
+  width: 120px;
 }
 
-@media (min-width: 401px) {
+@media (min-width: 501px) {
+  .account-main-heading {
+    font-size: 20px;
+    width: 200px;
+    margin-top: 22px;
+  }
+}
+
+@media (min-width: 801px) {
   .account-main-heading {
     font-size: 24px;
-    line-height: 31.27px;
+    width: 300px;
   }
 }
 
@@ -101,15 +124,37 @@
   margin-top: 50px;
 }
 
+@media (min-width: 501px) {
+  .logout-button {
+    padding: 10px 24px 10px 24px;
+    border-radius: 6px;
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 801px) {
+  .logout-button {
+    padding: 12px 28px 12px 28px;
+    border-radius: 8px;
+    font-size: 18px;
+  }
+}
+
 .user-mail-id {
   color: #1e293b;
 }
 
-@media (min-width: 401px) {
+@media (min-width: 501px) {
   .user-mail-id {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 31.27px;
+  }
+}
+
+@media (min-width: 801px) {
+  .user-mail-id {
+    font-size: 22px;
   }
 }
 
@@ -117,11 +162,17 @@
   color: #64748b;
 }
 
-@media (min-width: 401px) {
+@media (min-width: 501px) {
   .user-password {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 31.27px;
+  }
+}
+
+@media (min-width: 801px) {
+  .user-password {
+    font-size: 22px;
   }
 }
 
@@ -129,10 +180,34 @@
   color: #1e293b;
 }
 
-@media (min-width: 401px) {
+@media (min-width: 501px) {
   .premium-text {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 31.27px;
+  }
+}
+
+@media (min-width: 801px) {
+  .premium-text {
+    font-size: 22px;
+  }
+}
+
+.plan-details-container {
+  display: flex;
+  align-items: center;
+  width: 150px;
+}
+
+@media (min-width: 501px) {
+  .plan-details-container {
+    width: 265px;
+  }
+}
+
+@media (min-width: 801px) {
+  .plan-details-container {
+    width: 420px;
   }
 }

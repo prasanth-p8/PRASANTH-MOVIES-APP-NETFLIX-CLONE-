@@ -4,32 +4,18 @@ import './index.css'
 const Footer = () => (
   <footer className="footer-container">
     <div>
-      <ul className="footer-icon-list-mobile">
+      <ul className="footer-icon-list">
         <li>
-          <FaGoogle />
+          <FaGoogle className="icon-size" />
         </li>
         <li>
-          <FaTwitter />
+          <FaTwitter className="icon-size" />
         </li>
         <li>
-          <FaInstagram />
+          <FaInstagram className="icon-size" />
         </li>
         <li>
-          <FaYoutube />
-        </li>
-      </ul>
-      <ul className="footer-icon-list-desktop">
-        <li>
-          <FaGoogle size={18} />
-        </li>
-        <li>
-          <FaTwitter size={18} />
-        </li>
-        <li>
-          <FaInstagram size={18} />
-        </li>
-        <li>
-          <FaYoutube size={18} />
+          <FaYoutube className="icon-size" />
         </li>
       </ul>
       <p className="footer-contact-us">Contact us</p>

@@ -34,6 +34,16 @@
 
 @media all and (min-width: 401px) {
   .popular-page-image {
+    width: 160px;
+    height: 135px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border-radius: 6px;
+  }
+}
+
+@media all and (min-width: 801px) {
+  .popular-page-image {
     width: 255px;
     height: 170px;
     margin-bottom: 25px;

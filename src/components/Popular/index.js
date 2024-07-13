@@ -127,9 +127,9 @@ const Popular = () => {
           alt="failure view"
           className="popular-failure-view"
         />
-        <p className="popular-failure-description">
+        <h1 className="popular-failure-description">
           Something went wrong. Please try again
-        </p>
+        </h1>
         <button
           type="button"
           onClick={getPopular}

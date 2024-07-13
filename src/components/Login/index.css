@@ -1,11 +1,11 @@
 .login-main-container {
   background-color: #131313;
   min-height: 100vh;
-  max-width: 400px;
+  max-width: 500px;
   padding: 30px;
 }
 
-@media all and (min-width: 401px) {
+@media all and (min-width: 501px) {
   .login-main-container {
     max-width: 100%;
     background-size: cover;
@@ -22,7 +22,14 @@
   width: 100px;
 }
 
-@media all and (min-width: 401px) {
+@media all and (min-width: 501px) {
+  .login-website-logo {
+    width: 140px;
+    margin-left: 30px;
+  }
+}
+
+@media all and (min-width: 801px) {
   .login-website-logo {
     width: 180px;
     margin-left: 60px;
@@ -41,14 +48,14 @@
   font-family: Roboto;
 }
 
-@media all and (min-width: 401px) {
+@media all and (min-width: 501px) {
   .form-container {
     align-self: center;
     background-color: #0c0b10;
     width: 456px;
     min-height: 440px;
     border-radius: 8px;
-    opacity: 90%;
+    opacity: 90% !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,7 +69,7 @@
   line-height: 40px;
 }
 
-@media all and (min-width: 401px) {
+@media all and (min-width: 501px) {
   .form-heading {
     font-weight: 600;
   }
@@ -83,7 +90,7 @@
 
 .user-input {
   background-color: #333333;
-  width: 340px;
+  width: 300px;
   height: 40px;
   top: 24px;
   border: none;
@@ -101,7 +108,7 @@
 .error-message {
   color: #dc2626;
   font-size: 16px;
-  width: 340px;
+  width: 300px;
   font-weight: 400;
   line-height: 16.41px;
   margin-bottom: 30px;
@@ -109,7 +116,7 @@
 
 .login-button {
   background-color: #e50914;
-  width: 340px;
+  width: 300px;
   height: 40px;
   top: 404px;
   left: 32px;
@@ -122,7 +129,7 @@
   color: #ffffff;
 }
 
-@media all and (min-width: 401px) {
+@media all and (min-width: 501px) {
   .login-button {
     font-weight: 700;
   }

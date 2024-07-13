@@ -151,9 +151,9 @@ const Search = () => {
           alt="failure view"
           className="search-failure-view"
         />
-        <p className="search-failure-description">
+        <h1 className="search-failure-description">
           Something went wrong. Please try again
-        </p>
+        </h1>
         <button
           type="button"
           onClick={getSearch}
